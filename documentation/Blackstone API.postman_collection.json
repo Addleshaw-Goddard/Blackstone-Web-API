@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "d1e3a947-e2a2-49d7-b745-ce763759f0f5",
+		"name": "Blackstone API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Extract Legislation from text",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"text\":\"Control shall have the meaning set out in section 1124 of The Corporation Tax Act 2010 and Controls and Controlled shall be construed accordingly\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4449/legislation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4449",
+					"path": [
+						"legislation"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

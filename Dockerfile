@@ -7,5 +7,6 @@ RUN pip install https://blackstone-model.s3-eu-west-1.amazonaws.com/en_blackston
 
 ADD server.py /
 ADD Legislation.py /
+ADD NamedEntity.py /
 
 CMD [ "python", "./server.py" ]

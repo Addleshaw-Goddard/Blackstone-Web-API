@@ -13,9 +13,9 @@ app = Flask(__name__)
 api = Api(app)
 
 @app.route('/legislation', methods=['POST'])
-def ner():
-    req_data = request.get_json()
-    text = req_data['text']
+def legislation():
+    requestData = request.get_json()
+    text = requestData['text']
                 
     doc = nlp(text) 
     relations = extract_legislation_relations(doc)
@@ -28,9 +28,25 @@ def ner():
 
     return jsonpickle.encode(legislations, unpicklable=False)
 
+@app.route('/ner', methods=['POST'])
+def ner():
+    requestData = request.get_json()
+    text = requestData['text']
+                
+    doc = nlp(text) 
+    relations = extract_legislation_relations(doc)
+
+    namedEntities = []
+
+    for entity in entities:
+        namedEntities.append(NamedEntity(entity.text,entity.label_))
+
+
+    return jsonpickle.encode(namedEntities, unpicklable=False)
+
 
 @app.route('/status')
-def hello():
+def status():
     # Render the page
     return "Working"
 

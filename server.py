@@ -6,6 +6,7 @@ from flask import Flask, request, jsonify
 from flask_restful import Resource, Api
 from blackstone.utils.legislation_linker import extract_legislation_relations
 from Legislation import Legislation
+from NamedEntity import NamedEntity
 
 nlp = spacy.load("en_blackstone_proto")
 

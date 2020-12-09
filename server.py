@@ -49,7 +49,7 @@ def ner():
 @app.route('/status')
 def status():
     # Render the page
-    return "Working"
+    return "Blackstone Web API - Working"
 
 
 

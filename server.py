@@ -35,11 +35,9 @@ def ner():
     text = requestData['text']
                 
     doc = nlp(text) 
-    relations = extract_legislation_relations(doc)
-
     namedEntities = []
 
-    for entity in entities:
+    for entity in doc.ents:
         namedEntities.append(NamedEntity(entity.text,entity.label_))
 
 

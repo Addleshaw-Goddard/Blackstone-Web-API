@@ -18,11 +18,11 @@ Running the above command starts the underlying Blackstone project as well as th
 
 You can also pull and run this docker image from Docker Hub:
 
-```docker pull addleshaw-goddard/blackstone-web-api```
+```docker pull addleshawgoddard/blackstone-web-api```
 
 followed by
 
-```docker run -p 4449:4449 addleshaw-goddard/lackstone-web-api```
+```docker run -p 4449:4449 addleshawgoddard/blackstone-web-api```
 
 
 ## Endpoints

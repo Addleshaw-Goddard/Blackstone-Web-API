@@ -9,4 +9,6 @@ ADD server.py /
 ADD Legislation.py /
 ADD NamedEntity.py /
 
+EXPOSE 4449
+
 CMD [ "python", "./server.py" ]

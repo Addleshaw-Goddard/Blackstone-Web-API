@@ -2,6 +2,7 @@ import os
 import sys
 import jsonpickle
 import spacy
+import lexnlp.extract.en.conditions
 from flask import Flask, request, jsonify
 from flask_restful import Resource, Api
 from blackstone.utils.legislation_linker import extract_legislation_relations
@@ -42,6 +43,13 @@ def ner():
 
 
     return jsonpickle.encode(namedEntities, unpicklable=False)
+
+@app.route('/conditions', methods=['POST'])
+def conditions():
+    requestData = request.get_json()
+    text = requestData['text']
+                
+    return jsonpickle.encode(lexnlp.extract.en.conditions.get_conditions(text), unpicklable=False)
 
 
 @app.route('/status')

@@ -68,8 +68,11 @@ The API will return a JSON response with the following structure:
 
 ```json
 
-[{"text": "section 20", "label": "PROVISION"}, {"text": "Constitutional Reform and Governance Act 2010", "label":
-"INSTRUMENT"}, {"text": "section 1", "label": "PROVISION"}, {"text": "Theft Act 1968", "label": "INSTRUMENT"}]
+[[{"provision": "section 20", "provision_url": "https://www.legislation.gov.uk/ukpga/2010/25/section/20", "instrument":
+"Constitutional Reform and Governance Act 2010", "instrument_url":
+"https://www.legislation.gov.uk/ukpga/2010/25/contents"}, {"provision": "section 1", "provision_url":
+"https://www.legislation.gov.uk/ukpga/1968/60/section/1", "instrument": "Theft Act 1968", "instrument_url":
+"https://www.legislation.gov.uk/ukpga/1968/60/contents"}]]
 
 ```
 

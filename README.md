@@ -53,7 +53,7 @@ The API will return a JSON response with the following structure:
 ```json
 
 {
-  "data": [{"text":  "Some identified text", "label":  "CASENAME" }]
+  [{"text":  "Some identified text", "label":  "CASENAME" }]
 }
 
 ```
@@ -68,8 +68,24 @@ The API will return a JSON response with the following structure:
 
 ```json
 
+[{"text": "section 20", "label": "PROVISION"}, {"text": "Constitutional Reform and Governance Act 2010", "label":
+"INSTRUMENT"}, {"text": "section 1", "label": "PROVISION"}, {"text": "Theft Act 1968", "label": "INSTRUMENT"}]
+
+```
+
+
+### /sentences
+
+Blackstone ships with a custom rule-based sentence segmenter that addresses a range of characteristics inherent in legal texts that have a tendency to baffle out-of-the-box sentence segmentation rules.
+
+This behaviour can be extended by optionally passing a list of spaCy-style Matcher patterns that will explicitly prevent sentence boundary detection inside matches.
+
+The API will return a JSON response with the following structure: 
+
+```json
+
 {
-  "data": [{"provision":  "Some provision found", "provision_url":  "http://www.link.to/legislation", "instrument": "Some provision found", "instrument_url" : "https://www.link.to/legislation  ]
+  ["The courts in this jurisdiction will enforce those commitments when it is legally possible and necessary to do so (see, most recently, R. (on the application of ClientEarth) v Secretary of State for the Environment, Food and Rural Affairs (No.2) [2017] P.T.S.R. 203 and R. (on the application of ClientEarth) v Secretary of State for Environment, Food and Rural Affairs (No.3) [2018] Env. L.R. 21)."," The central question in this case arises against that background." ]
 }
 
 ```

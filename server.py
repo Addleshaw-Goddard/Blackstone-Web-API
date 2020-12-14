@@ -7,6 +7,8 @@ from flask_restful import Resource, Api
 from blackstone.utils.legislation_linker import extract_legislation_relations
 from Legislation import Legislation
 from NamedEntity import NamedEntity
+from blackstone.pipeline.sentence_segmenter import SentenceSegmenter
+from blackstone.rules import CITATION_PATTERNS
 
 nlp = spacy.load("en_blackstone_proto")
 
@@ -42,6 +44,19 @@ def ner():
 
 
     return jsonpickle.encode(namedEntities, unpicklable=False)
+
+@app.route('/sentences', methods=['POST'])
+def ner():
+    requestData = request.get_json()
+    text = requestData['text']
+                
+    doc = nlp(text) 
+    sentences = []
+
+    for sent in doc.sents:
+        sentences.append(sent.text)
+
+    return jsonpickle.encode(sentences, unpicklable=False)
 
 @app.route('/status')
 def status():

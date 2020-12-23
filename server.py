@@ -46,7 +46,7 @@ def ner():
     return jsonpickle.encode(namedEntities, unpicklable=False)
 
 @app.route('/sentences', methods=['POST'])
-def ner():
+def sentences():
     requestData = request.get_json()
     text = requestData['text']
                 

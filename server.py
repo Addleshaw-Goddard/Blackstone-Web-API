@@ -26,7 +26,7 @@ def legislation():
     legislations = []
 
     for provision, provision_url, instrument, instrument_url in relations:
-        legislations.append(Legislation(provision.text,provision_url,instrument.text,instrument_url))
+        legislations.append(Legislation(provision,provision_url,instrument,instrument_url))
 
 
     return jsonpickle.encode(legislations, unpicklable=False)

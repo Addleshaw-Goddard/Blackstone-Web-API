@@ -31,7 +31,7 @@ All of the below endpoints accept a POST request with a JSON body that includes 
 
 ```json
 {
-  "text": "This is the text you want to process..."
+  "text": "The Secretary of State was at pains to emphasise that, if a withdrawal agreement is made, it is very likely to be a treaty requiring ratification and as such would have to be submitted for review by Parliament, acting separately, under the negative resolution procedure set out in section 20 of the Constitutional Reform and Governance Act 2010. Theft is defined in section 1 of the Theft Act 1968"
 }
 ```
 
@@ -52,9 +52,8 @@ The API will return a JSON response with the following structure:
 
 ```json
 
-{
-  [{"text":  "Some identified text", "label":  "CASENAME" }]
-}
+[{"text": "section 20", "label": "PROVISION"}, {"text": "Constitutional Reform and Governance Act 2010", "label":
+"INSTRUMENT"}, {"text": "section 1", "label": "PROVISION"}, {"text": "Theft Act 1968", "label": "INSTRUMENT"}]
 
 ```
 
@@ -88,7 +87,7 @@ The API will return a JSON response with the following structure:
 ```json
 
 {
-  ["The courts in this jurisdiction will enforce those commitments when it is legally possible and necessary to do so (see, most recently, R. (on the application of ClientEarth) v Secretary of State for the Environment, Food and Rural Affairs (No.2) [2017] P.T.S.R. 203 and R. (on the application of ClientEarth) v Secretary of State for Environment, Food and Rural Affairs (No.3) [2018] Env. L.R. 21)."," The central question in this case arises against that background." ]
+ ["The Secretary of State was at pains to emphasise that, if a withdrawal agreement is made, it is very likely to be a treaty requiring ratification and as such would have to be submitted for review by Parliament, acting separately, under the negative resolution procedure set out in section 20 of the Constitutional Reform and Governance Act 2010.", "Theft is defined in section 1 of the Theft Act 1968"]
 }
 
 ```

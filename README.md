@@ -24,6 +24,10 @@ followed by
 
 ```docker run -p 4449:4449 addleshawgoddard/blackstone-web-api```
 
+or to expose the service on port 80 to the world:
+
+```docker run -p 80:4449 addleshawgoddard/blackstone-web-api```
+
 
 ## Endpoints
 

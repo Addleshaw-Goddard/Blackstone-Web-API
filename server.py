@@ -14,6 +14,9 @@ from blackstone.rules import CITATION_PATTERNS
 
 nlp = spacy.load("en_blackstone_proto")
 
+abbreviation_pipe = AbbreviationDetector(nlp)
+nlp.add_pipe(abbreviation_pipe)
+
 app = Flask(__name__)
 api = Api(app)
 
@@ -21,16 +24,12 @@ api = Api(app)
 def abbreviation():
     requestData = request.get_json()
     text = requestData['text']
-
-    abbreviation_pipe = AbbreviationDetector(nlp)
-    nlp.add_pipe(abbreviation_pipe)
-                
+       
     doc = nlp(text) 
     abbreviation = []
 
     for abrv in doc._.abbreviations:
-        abbreviation.append(Abbreviation(abrv, abrv.start, abrv.end, abrv._.long_form))
-
+        abbreviation.append(Abbreviation(abrv.string, abrv.start_char, abrv.end_char, abrv._.long_form.string))
 
     return jsonpickle.encode(abbreviation, unpicklable=False)
 

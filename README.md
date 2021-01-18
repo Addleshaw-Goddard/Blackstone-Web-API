@@ -51,9 +51,11 @@ The API will return a JSON response with the following structure:
 
 ```json
 
-[{"abrv": "ECtHR", "start": "7", "end": "10", "longForm": "European Court of Human Rights"}]
+[{"abbreviation": "ECtHR", "start": 36, "end": 43, "longForm": "European Court of Human Rights" }]
 
 ```
+
+start and end are the character positions of the abbreviation with the text sent.
 
 ### /ner
 

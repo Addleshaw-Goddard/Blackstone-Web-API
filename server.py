@@ -46,7 +46,7 @@ def legislation():
     legislations = []
 
     for provision, provision_url, instrument, instrument_url in relations:
-        legislations.append(Legislation(provision.text,provision_url,instrument.text,instrument_url
+        legislations.append(Legislation(provision.text,provision_url,instrument.text,instrument_url))
 
     return jsonpickle.encode(legislations, unpicklable=False)
 
@@ -60,7 +60,6 @@ def ner():
 
     for entity in doc.ents:
         namedEntities.append(NamedEntity(entity.text,entity.label_))
-
 
     return jsonpickle.encode(namedEntities, unpicklable=False)
 

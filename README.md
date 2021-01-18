@@ -39,6 +39,22 @@ All of the below endpoints accept a POST request with a JSON body that includes 
 }
 ```
 
+### /abbreviation
+
+It is not uncommon for authors of legal documents to abbreviate long-winded terms that will be used instead of the long-form througout the rest of the document. For example,
+
+> The European Court of Human Rights ("ECtHR") is the court ultimately responsible for applying the European Convention on Human Rights ("ECHR"). 
+
+The abbreviation detection component in Blackstone seeks to address this by implementing an ever so slightly modified version of [scispaCy's](https://allenai.github.io/scispacy/) `AbbreviationDetector()` (which is itself an implementation of the approach set out in this paper: https://psb.stanford.edu/psb-online/proceedings/psb03/schwartz.pdf).
+
+The API will return a JSON response with the following structure: 
+
+```json
+
+[{"abrv": "ECtHR", "start": "7", "end": "10", "longForm": "European Court of Human Rights"}]
+
+```
+
 ### /ner
 
 The NER component of the Blackstone model has been trained to detect the following entity types:

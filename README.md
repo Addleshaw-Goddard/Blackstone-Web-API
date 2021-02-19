@@ -109,7 +109,7 @@ The API will return a JSON response with the following structure:
 ```json
 
 {
- ["The Secretary of State was at pains to emphasise that, if a withdrawal agreement is made, it is very likely to be a treaty requiring ratification and as such would have to be submitted for review by Parliament, acting separately, under the negative resolution procedure set out in section 20 of the Constitutional Reform and Governance Act 2010.", "Theft is defined in section 1 of the Theft Act 1968"]
+ ["text": "The Secretary of State was at pains to emphasise that, if a withdrawal agreement is made, it is very likely to be a treaty requiring ratification and as such would have to be submitted for review by Parliament, acting separately, under the negative resolution procedure set out in section 20 of the Constitutional Reform and Governance Act 2010.", "text": "Theft is defined in section 1 of the Theft Act 1968"]
 }
 
 ```

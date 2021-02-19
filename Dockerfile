@@ -9,6 +9,7 @@ ADD server.py /
 ADD Legislation.py /
 ADD NamedEntity.py /
 ADD Abbreviation.py /
+ADD Sentence.py /
 
 EXPOSE 4449
 

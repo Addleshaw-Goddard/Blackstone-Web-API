@@ -9,6 +9,7 @@ from blackstone.utils.legislation_linker import extract_legislation_relations
 from Legislation import Legislation
 from NamedEntity import NamedEntity
 from Abbreviation import Abbreviation
+from Sentence import Sentence
 from blackstone.pipeline.sentence_segmenter import SentenceSegmenter
 from blackstone.rules import CITATION_PATTERNS
 
@@ -71,7 +72,7 @@ def sentences():
     sentences = []
 
     for sent in doc.sents:
-        sentences.append(sent.text)
+        sentences.append(Sentence(sent.text))
 
     return jsonpickle.encode(sentences, unpicklable=False)
 

@@ -24,6 +24,12 @@ followed by
 
 ```docker run -p 80:80 addleshawgoddard/blackstone-web-api```
 
+## Documentation
+
+Documentation is available at /docs when you run the container image.
+
+Example available: http://ag-blackstone-web-api.uksouth.azurecontainer.io/docs
+
 
 ## Endpoints
 

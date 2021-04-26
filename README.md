@@ -28,7 +28,7 @@ followed by
 
 Documentation is available at /docs when you run the container image.
 
-Example available: http://ag-blackstone-web-api.uksouth.azurecontainer.io/docs
+Example available: http://addleshawgoddard-blackstone-web-api.uksouth.azurecontainer.io/docs
 
 
 ## Endpoints

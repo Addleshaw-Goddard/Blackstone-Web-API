@@ -12,7 +12,7 @@ To start this project simply run:
 
 `docker-compose up -d`
 
-Running the above command starts the underlying Blackstone project as well as the API layer, which by default is running on port 4449 at http://localhost:4449.
+Running the above command starts the underlying Blackstone project as well as the API layer, which by default is running on port 80 at http://localhost:80.
 
 ## Running precompiled image
 
@@ -22,11 +22,13 @@ You can also pull and run this docker image from Docker Hub:
 
 followed by
 
-```docker run -p 4449:4449 addleshawgoddard/blackstone-web-api```
+```docker run -p 80:80 addleshawgoddard/blackstone-web-api```
 
-or to expose the service on port 80 to the world:
+## Documentation
 
-```docker run -p 80:4449 addleshawgoddard/blackstone-web-api```
+Documentation is available at /docs when you run the container image.
+
+Example available: http://ag-blackstone-web-api.uksouth.azurecontainer.io/docs
 
 
 ## Endpoints

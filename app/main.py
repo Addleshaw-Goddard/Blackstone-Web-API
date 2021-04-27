@@ -31,20 +31,7 @@ def read_root():
     return {"Status": "Working"}
 
 @app.post("/abbreviation")
-def Act(item: Request):
-    abbreviation = []
-
-    doc = nlp(item.text) 
-
-    for abrv in doc._.abbreviations:
-        abbreviation.append(Abbreviation(abrv.string, abrv.start_char, abrv.end_char, abrv._.long_form.string))
-
-    return JSONResponse(content=jsonable_encoder(abbreviation))
-
-
-
-@app.post("/abbreviation")
-def Act(item: Request):
+def Abbreviation(item: Request):
     abbreviation = []
 
     doc = nlp(item.text) 
@@ -55,13 +42,10 @@ def Act(item: Request):
     return JSONResponse(content=jsonable_encoder(abbreviation))
 
 @app.route('/legislation', methods=['POST'])
-def legislation():
-
-    legislations = []
+def Legislation(item: Request):
 
     doc = nlp(item.text) 
     relations = extract_legislation_relations(doc)
-
 
     for provision, provision_url, instrument, instrument_url in relations:
         legislations.append(Legislation(provision.text,provision_url,instrument.text,instrument_url))
@@ -69,9 +53,7 @@ def legislation():
     return JSONResponse(content=jsonable_encoder(legislations))
 
 @app.route('/ner', methods=['POST'])
-def legislation():
-
-    legislations = []
+def Ner(item: Request):
 
     doc = nlp(item.text) 
     namedEntities = []
@@ -82,9 +64,7 @@ def legislation():
     return JSONResponse(content=jsonable_encoder(namedEntities))
 
 @app.route('/sentences', methods=['POST'])
-def legislation():
-
-    legislations = []
+def Sentences(item: Request):
 
     doc = nlp(item.text) 
     sentences = []
@@ -93,6 +73,21 @@ def legislation():
         sentences.append(Sentence(sent.text))
 
     return JSONResponse(content=jsonable_encoder(sentences))
+
+def custom_openapi():
+    if app.openapi_schema:
+        return app.openapi_schema
+    openapi_schema = get_openapi(
+        title="Blackstone NLP Web API",
+        version="1.0.0",
+        description="Provided by Addleshaw Goddard",
+        routes=app.routes,
+    )
+    openapi_schema["info"]["x-logo"] = {
+        "url": "https://avatars.githubusercontent.com/u/65235518?s=200&v=4"
+    }
+    app.openapi_schema = openapi_schema
+    return app.openapi_schema
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=80)

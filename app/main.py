@@ -9,10 +9,10 @@ import types
 import spacy
 from blackstone.pipeline.abbreviations import AbbreviationDetector
 from blackstone.utils.legislation_linker import extract_legislation_relations
-from Models.Legislation import Legislation
-from Models.NamedEntity import NamedEntity
-from Models.Abbreviation import Abbreviation
-from Models.Sentence import Sentence
+from models.Legislation import Legislation
+from models.NamedEntity import NamedEntity
+from models.Abbreviation import Abbreviation
+from models.Sentence import Sentence
 from blackstone.pipeline.sentence_segmenter import SentenceSegmenter
 from blackstone.rules import CITATION_PATTERNS
 

@@ -63,7 +63,7 @@ def Ner(item: Request):
 
     return JSONResponse(content=jsonable_encoder(namedEntities))
 
-@app.route('/sentences', methods=['POST'])
+@app.post("/sentences")
 def Sentences(item: Request):
 
     doc = nlp(item.text) 

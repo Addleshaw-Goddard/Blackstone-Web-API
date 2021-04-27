@@ -41,7 +41,7 @@ def Abbreviation(item: Request):
 
     return JSONResponse(content=jsonable_encoder(abbreviation))
 
-@app.route('/legislation', methods=['POST'])
+@app.post("/legislation")
 def Legislation(item: Request):
 
     doc = nlp(item.text) 
@@ -52,7 +52,7 @@ def Legislation(item: Request):
 
     return JSONResponse(content=jsonable_encoder(legislations))
 
-@app.route('/ner', methods=['POST'])
+@app.post("/ner")
 def Ner(item: Request):
 
     doc = nlp(item.text) 

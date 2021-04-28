@@ -37,7 +37,7 @@ def Abbreviation(item: Request):
     doc = nlp(item.text) 
 
     for abrv in doc._.abbreviations:
-        abbreviation.append(Abbreviation(abrv.string, abrv.start_char, abrv.end_char, abrv._.long_form.string))
+        abbreviation.append(Abrv(abrv.string, abrv.start_char, abrv.end_char, abrv._.long_form.string))
 
     return JSONResponse(content=jsonable_encoder(abbreviation))
 

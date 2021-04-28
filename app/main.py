@@ -9,7 +9,7 @@ import types
 import spacy
 from blackstone.pipeline.abbreviations import AbbreviationDetector
 from blackstone.utils.legislation_linker import extract_legislation_relations
-from models.Legislation import Legislation
+from models.Leg import Leg
 from models.NamedEntity import NamedEntity
 from models.Abrv import Abrv
 from models.Sentence import Sentence
@@ -50,7 +50,7 @@ def Legislation(item: Request):
     legislations = []
     
     for provision, provision_url, instrument, instrument_url in relations:
-        legislations.append(Legislation(provision.text,provision_url,instrument.text,instrument_url))
+        legislations.append(Leg(provision.text,provision_url,instrument.text,instrument_url))
 
     return JSONResponse(content=jsonable_encoder(legislations))
 

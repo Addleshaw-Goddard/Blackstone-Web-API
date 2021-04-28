@@ -11,7 +11,7 @@ from blackstone.pipeline.abbreviations import AbbreviationDetector
 from blackstone.utils.legislation_linker import extract_legislation_relations
 from models.Legislation import Legislation
 from models.NamedEntity import NamedEntity
-from models.Abbreviation import Abbreviation
+from models.Abrv import Abrv
 from models.Sentence import Sentence
 from blackstone.pipeline.sentence_segmenter import SentenceSegmenter
 from blackstone.rules import CITATION_PATTERNS
@@ -37,7 +37,7 @@ def Abbreviation(item: Request):
     doc = nlp(item.text) 
 
     for abrv in doc._.abbreviations:
-        abbreviation.append(Abbreviation(abrv.string, abrv.start_char, abrv.end_char, abrv._.long_form.string))
+        abbreviation.append(Abrv(abrv.string, abrv.start_char, abrv.end_char, abrv._.long_form.string))
 
     return JSONResponse(content=jsonable_encoder(abbreviation))
 

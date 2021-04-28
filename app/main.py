@@ -46,7 +46,9 @@ def Legislation(item: Request):
 
     doc = nlp(item.text) 
     relations = extract_legislation_relations(doc)
-
+    
+    legislations = []
+    
     for provision, provision_url, instrument, instrument_url in relations:
         legislations.append(Legislation(provision.text,provision_url,instrument.text,instrument_url))
 
